@@ -545,7 +545,7 @@ export default function TicketPurchase() {
                     <div key={i} className="w-5 h-5 bg-white rounded-full" />
                   ))}
                 </div>
-                <h2 className="font-black tracking-widest text-xl">VISTAONE</h2>
+                <h2 className="font-black tracking-widest text-xl">Grand Oasis</h2>
                 <div>
                   <img src={`https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${lastTransaction.id}-${index}-${i}`} alt="QR" className="w-24 h-24 bg-white p-1 rounded-xl mx-auto" />
                 </div>

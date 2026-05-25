@@ -23,16 +23,16 @@ export default function Header({ darkMode, toggleDarkMode, toggleSidebar }) {
   return (
     <header className="fixed top-0 right-0 left-0 md:left-[280px] h-16 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 z-30">
       <div className="h-full px-4 md:px-6 flex items-center justify-between">
-        
+
         {/* Left Section (Mobile Menu + Search) */}
         <div className="flex flex-1 items-center gap-3 md:gap-4 max-w-xl">
-          <button 
+          <button
             onClick={toggleSidebar}
             className="md:hidden p-2 -ml-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl"
           >
             <Menu className="w-5 h-5" />
           </button>
-          
+
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-gray-400" />
             <input
@@ -92,17 +92,15 @@ export default function Header({ darkMode, toggleDarkMode, toggleSidebar }) {
                     {notifications.map((notif) => (
                       <div
                         key={notif.id}
-                        className={`p-4 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors ${
-                          !notif.read ? 'bg-primary-50/50 dark:bg-primary-900/10' : ''
-                        }`}
+                        className={`p-4 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors ${!notif.read ? 'bg-primary-50/50 dark:bg-primary-900/10' : ''
+                          }`}
                       >
                         <div className="flex items-start gap-3">
-                          <div className={`w-2 h-2 rounded-full mt-2 ${
-                            notif.type === 'alert' ? 'bg-red-500' :
-                            notif.type === 'warning' ? 'bg-orange-500' :
-                            notif.type === 'success' ? 'bg-green-500' :
-                            'bg-blue-500'
-                          }`} />
+                          <div className={`w-2 h-2 rounded-full mt-2 ${notif.type === 'alert' ? 'bg-red-500' :
+                              notif.type === 'warning' ? 'bg-orange-500' :
+                                notif.type === 'success' ? 'bg-green-500' :
+                                  'bg-blue-500'
+                            }`} />
                           <div className="flex-1">
                             <p className="text-sm font-semibold text-gray-900 dark:text-white">{notif.title}</p>
                             <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{notif.message}</p>
@@ -148,7 +146,7 @@ export default function Header({ darkMode, toggleDarkMode, toggleSidebar }) {
                 >
                   <div className="p-4 border-b border-gray-200 dark:border-gray-800">
                     <p className="font-semibold text-gray-900 dark:text-white">Pengguna Admin</p>
-                    <p className="text-sm text-gray-500">admin@vistaone.com</p>
+                    <p className="text-sm text-gray-500">admin@Grand Oasis.com</p>
                   </div>
                   <div className="p-2">
                     <button className="w-full flex items-center gap-3 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-left">

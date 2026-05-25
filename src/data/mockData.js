@@ -1,13 +1,91 @@
 // Data untuk aplikasi Tourism Management System
 
+// ============================================================
+// SUMBER DATA UTAMA: Fasilitas Grand Oasis
+// Data ini adalah single source of truth yang digunakan oleh
+// Landing Page dan Dashboard secara bersamaan.
+// ============================================================
+export const facilitiesData = [
+  {
+    id: 'waterpark',
+    title: 'Water Park',
+    desc: 'Wahana air seru dengan ombak buatan dan seluncuran raksasa.',
+    img: '/waterpark.jpg',
+    icon: '🌊',
+    hours: '08:00 - 18:00',
+    visitors: 756,
+    revenue: 113400000,
+    rating: 4.8,
+    color: '#3b82f6',
+    checkpointId: 'CP-002',
+    location: 'Area Utara'
+  },
+  {
+    id: 'kolam-ombak',
+    title: 'Kolam Ombak',
+    desc: 'Rasakan sensasi deburan ombak seperti di pantai sungguhan.',
+    img: '/kolam-ombak.png',
+    icon: '🏄‍♂️',
+    hours: '08:00 - 18:00',
+    visitors: 892,
+    revenue: 133800000,
+    rating: 4.7,
+    color: '#a855f7',
+    checkpointId: 'CP-003',
+    location: 'Area Barat'
+  },
+  {
+    id: 'lapangan-golf',
+    title: 'Lapangan Golf',
+    desc: 'Tantang diri Anda di lapangan golf 18 hole berstandar PGA.',
+    img: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2070&auto=format&fit=crop',
+    icon: '⛳',
+    hours: '06:00 - 18:00',
+    visitors: 423,
+    revenue: 84600000,
+    rating: 4.5,
+    color: '#22c55e',
+    checkpointId: 'CP-004',
+    location: 'Area Selatan'
+  },
+  {
+    id: 'area-bermain',
+    title: 'Area Bermain Anak',
+    desc: 'Zona aman dan edukatif untuk keceriaan si kecil.',
+    img: '/taman-bermain.jpg',
+    icon: '🎠',
+    hours: '08:00 - 20:00',
+    visitors: 589,
+    revenue: 58900000,
+    rating: 4.9,
+    color: '#f97316',
+    checkpointId: 'CP-005',
+    location: 'Area Tengah'
+  },
+  {
+    id: 'restoran',
+    title: 'Restoran',
+    desc: 'Nikmati sajian spesial dengan hidangan dari koki profesional kami.',
+    img: '/restoran.jpg',
+    icon: '🍽️',
+    hours: '10:00 - 22:00',
+    visitors: 634,
+    revenue: 95100000,
+    rating: 4.6,
+    color: '#ec4899',
+    checkpointId: 'CP-006',
+    location: 'Area Tengah'
+  }
+];
+
 export const dashboardStats = {
-  totalVisitors: 2847,
-  revenueToday: 145680000,
+  totalVisitors: 3294,
+  revenueToday: 485800000,
   ticketsSold: 1523,
   activeVisitors: 1842,
   mostCrowdedArea: "Kolam Ombak",
-  inventoryAlerts: 12,
-  activeCheckpoints: 8
+  inventoryAlerts: 5,
+  activeCheckpoints: 5
 };
 
 export const visitorTrend = [
@@ -23,13 +101,13 @@ export const visitorTrend = [
   { time: '17:00', visitors: 1680, revenue: 84200000 },
 ];
 
+// Area distribution menggunakan data dari facilitiesData
 export const areaDistribution = [
-  { name: 'Kolam Ombak', value: 450, color: '#a855f7' },
-  { name: 'Restoran', value: 320, color: '#c084fc' },
-  { name: 'Lapangan Golf', value: 180, color: '#d8b4fe' },
-  { name: 'Taman Bermain', value: 280, color: '#f97316' },
-  { name: 'Hotel', value: 220, color: '#fb923c' },
-  { name: 'Kafe', value: 392, color: '#9333ea' },
+  { name: 'Water Park', value: 756, color: '#3b82f6' },
+  { name: 'Kolam Ombak', value: 892, color: '#a855f7' },
+  { name: 'Lapangan Golf', value: 423, color: '#22c55e' },
+  { name: 'Area Bermain Anak', value: 589, color: '#f97316' },
+  { name: 'Restoran', value: 634, color: '#ec4899' },
 ];
 
 export const recentTransactions = [
@@ -40,15 +118,14 @@ export const recentTransactions = [
   { id: 'TRX-164078', customer: 'Walk-in Customer', type: 'Tiket Masuk', amount: 350000, time: '15 menit lalu', status: 'selesai' },
 ];
 
+// Checkpoint per fasilitas (+ Gerbang Utama)
 export const checkpointStatus = [
-  { id: 'CP-001', name: 'Gerbang Utama', status: 'online', scans: 1247, valid: 1198, rejected: 49 },
-  { id: 'CP-002', name: 'Pintu Masuk Kolam', status: 'online', scans: 892, valid: 875, rejected: 17 },
-  { id: 'CP-003', name: 'Area Restoran', status: 'online', scans: 654, valid: 648, rejected: 6 },
-  { id: 'CP-004', name: 'Lapangan Golf', status: 'offline', scans: 0, valid: 0, rejected: 0 },
-  { id: 'CP-005', name: 'Lobi Hotel', status: 'online', scans: 423, valid: 420, rejected: 3 },
-  { id: 'CP-006', name: 'Taman Bermain', status: 'online', scans: 567, valid: 552, rejected: 15 },
-  { id: 'CP-007', name: 'Area Kafe', status: 'online', scans: 789, valid: 781, rejected: 8 },
-  { id: 'CP-008', name: 'Gedung Acara', status: 'online', scans: 345, valid: 340, rejected: 5 },
+  { id: 'CP-001', name: 'Gerbang Utama', facilityId: null, status: 'online', scans: 3294, valid: 3210, rejected: 84 },
+  { id: 'CP-002', name: 'Water Park', facilityId: 'waterpark', status: 'online', scans: 756, valid: 740, rejected: 16 },
+  { id: 'CP-003', name: 'Kolam Ombak', facilityId: 'kolam-ombak', status: 'online', scans: 892, valid: 875, rejected: 17 },
+  { id: 'CP-004', name: 'Lapangan Golf', facilityId: 'lapangan-golf', status: 'online', scans: 423, valid: 420, rejected: 3 },
+  { id: 'CP-005', name: 'Area Bermain Anak', facilityId: 'area-bermain', status: 'online', scans: 589, valid: 572, rejected: 17 },
+  { id: 'CP-006', name: 'Restoran', facilityId: 'restoran', status: 'online', scans: 634, valid: 628, rejected: 6 },
 ];
 
 export const ticketCategories = [
@@ -101,42 +178,52 @@ export const inventoryItems = [
   { id: 8, name: 'Bola Golf', stock: 890, minStock: 500, status: 'good', category: 'Olahraga', supplier: 'Golf Pro' },
 ];
 
+// Branches menggunakan nama fasilitas dari landing page
 export const branches = [
   {
     id: 1,
-    name: 'Main Complex',
-    location: 'Jakarta',
-    visitors: 2847,
-    revenue: 145680000,
+    name: 'Water Park',
+    location: 'Area Utara',
+    visitors: 756,
+    revenue: 113400000,
     status: 'active',
-    manager: 'John Manager'
+    manager: 'Andi Pratama'
   },
   {
     id: 2,
-    name: 'Beach Resort',
-    location: 'Bali',
-    visitors: 1923,
-    revenue: 98450000,
+    name: 'Kolam Ombak',
+    location: 'Area Barat',
+    visitors: 892,
+    revenue: 133800000,
     status: 'active',
-    manager: 'Sarah Beach'
+    manager: 'Sari Dewi'
   },
   {
     id: 3,
-    name: 'Mountain Lodge',
-    location: 'Bandung',
-    visitors: 1456,
-    revenue: 72340000,
+    name: 'Lapangan Golf',
+    location: 'Area Selatan',
+    visitors: 423,
+    revenue: 84600000,
     status: 'active',
-    manager: 'Mike Hill'
+    manager: 'Budi Santoso'
   },
   {
     id: 4,
-    name: 'City Park',
-    location: 'Surabaya',
-    visitors: 3124,
-    revenue: 156780000,
+    name: 'Area Bermain Anak',
+    location: 'Area Tengah',
+    visitors: 589,
+    revenue: 58900000,
     status: 'active',
-    manager: 'Lisa Park'
+    manager: 'Rina Susanti'
+  },
+  {
+    id: 5,
+    name: 'Restoran',
+    location: 'Area Tengah',
+    visitors: 634,
+    revenue: 95100000,
+    status: 'active',
+    manager: 'Hendra Wijaya'
   },
 ];
 
@@ -149,12 +236,13 @@ export const staffRoles = [
   { role: 'Gate Officer', count: 16, permissions: ['checkpoint', 'scan_tickets'] },
 ];
 
+// topAttractions diambil dari facilitiesData, diurutkan berdasarkan visitors terbanyak
 export const topAttractions = [
-  { name: 'Seluncuran Air Ekstrim', visitors: 892, rating: 4.8, revenue: 44600000 },
-  { name: 'Kolam Ombak', visitors: 756, rating: 4.7, revenue: 37800000 },
-  { name: 'Mini Golf', visitors: 634, rating: 4.5, revenue: 31700000 },
-  { name: 'Taman Bermain Anak', visitors: 589, rating: 4.9, revenue: 29450000 },
-  { name: 'Sungai Santai', visitors: 523, rating: 4.6, revenue: 26150000 },
+  { name: 'Kolam Ombak', visitors: 892, rating: 4.7, revenue: 133800000 },
+  { name: 'Water Park', visitors: 756, rating: 4.8, revenue: 113400000 },
+  { name: 'Restoran', visitors: 634, rating: 4.6, revenue: 95100000 },
+  { name: 'Area Bermain Anak', visitors: 589, rating: 4.9, revenue: 58900000 },
+  { name: 'Lapangan Golf', visitors: 423, rating: 4.5, revenue: 84600000 },
 ];
 
 export const peakHours = [

@@ -21,7 +21,7 @@ import {
 import { AnimatePresence } from 'framer-motion';
 
 const menuItems = [
-  { icon: LayoutDashboard, label: 'Beranda', path: '/' },
+  { icon: LayoutDashboard, label: 'Beranda', path: '/dashboard' },
   { icon: Ticket, label: 'Tiket', path: '/ticketing' },
   { icon: Users, label: 'Pengunjung', path: '/visitors' },
   { icon: ScanLine, label: 'Checkpoint', path: '/checkpoints' },
@@ -38,7 +38,7 @@ const menuItems = [
   { icon: Package, label: 'Gudang', path: '/inventory' },
   { icon: BarChart3, label: 'Analitik', path: '/analytics' },
   { icon: FileText, label: 'Laporan', path: '/reports' },
-  { icon: Building2, label: 'Kelola Cabang', path: '/branches' },
+  { icon: Building2, label: 'Kelola Fasilitas', path: '/branches' },
   { icon: UserCog, label: 'Kelola Staff', path: '/staff' },
   { icon: Settings, label: 'Pengaturan', path: '/settings' },
 ];
@@ -84,13 +84,12 @@ export default function Sidebar({ currentPage, onNavigate, mobileSidebarOpen, se
                 animate={{ opacity: 1 }}
                 className="flex items-center gap-3"
               >
-                <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30 overflow-hidden">
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
-                  <Compass className="w-6 h-6 text-white relative z-10 drop-shadow-md transition-transform duration-500 hover:rotate-90" />
+                <div className="relative w-6 h-6 rounded-xl bg-white flex items-center justify-center shadow-lg overflow-hidden p-0.5">
+                  <img src="/logo.svg" alt="Grand Oasis Logo" className="w-full h-full object-contain relative z-10 drop-shadow-sm transition-transform duration-500 hover:scale-110" />
                 </div>
                 <div className="flex flex-col justify-center">
                   <h1 className="text-xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-violet-600 dark:from-blue-400 dark:to-violet-400">
-                    VistaOne
+                    Grand Oasis
                   </h1>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 opacity-80 mt-[-2px]">
                     Enterprise

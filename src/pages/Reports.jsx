@@ -29,7 +29,7 @@ const reportTypes = [
   { id: 'revenue', name: 'Laporan Pendapatan', icon: DollarSign, color: 'from-emerald-400 to-emerald-600', shadow: 'shadow-emerald-500/30' },
   { id: 'ticket', name: 'Laporan Tiket', icon: Ticket, color: 'from-amber-400 to-amber-600', shadow: 'shadow-amber-500/30' },
   { id: 'inventory', name: 'Laporan Stok', icon: Package, color: 'from-rose-400 to-rose-600', shadow: 'shadow-rose-500/30' },
-  { id: 'branch', name: 'Laporan Cabang', icon: Building2, color: 'from-cyan-400 to-cyan-600', shadow: 'shadow-cyan-500/30' },
+  { id: 'branch', name: 'Laporan Fasilitas', icon: Building2, color: 'from-cyan-400 to-cyan-600', shadow: 'shadow-cyan-500/30' },
 ];
 
 const initialReports = [
@@ -119,7 +119,7 @@ export default function Reports() {
       case 'revenue': return { top: 'Distribusi Pendapatan (Juta)', bottom: 'Transaksi Kategori', fmt: true };
       case 'ticket': return { top: 'Pendapatan Tiket (Juta)', bottom: 'Tiket Terjual', fmt: true };
       case 'inventory': return { top: 'Nilai Stok (Juta)', bottom: 'Jumlah Item', fmt: true };
-      case 'branch': return { top: 'Pendapatan Cabang (Juta)', bottom: 'Pengunjung Cabang', fmt: true };
+      case 'branch': return { top: 'Pendapatan Fasilitas (Juta)', bottom: 'Pengunjung Fasilitas', fmt: true };
       default: return { top: 'Tren Pendapatan', bottom: 'Tren Pengunjung', fmt: false };
     }
   };
@@ -168,7 +168,7 @@ export default function Reports() {
       'Laporan Pendapatan': 'revenue',
       'Laporan Tiket': 'ticket',
       'Laporan Stok': 'inventory',
-      'Laporan Cabang': 'branch'
+      'Laporan Fasilitas': 'branch'
     };
     
     const dataKey = typeMap[report.type] || 'daily';
@@ -331,14 +331,14 @@ export default function Reports() {
               
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                  Lokasi Cabang
+                  Lokasi Fasilitas
                 </label>
                 <select className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all font-medium text-gray-700 dark:text-gray-200 appearance-none">
-                  <option>Semua Cabang</option>
-                  <option>Main Complex</option>
-                  <option>Beach Resort</option>
-                  <option>Mountain Lodge</option>
-                  <option>City Park</option>
+                  <option>Semua Fasilitas</option>
+                  <option>Restoran Utama</option>
+                  <option>Lapangan Golf</option>
+                  <option>Water Park</option>
+                  <option>Kafe \u0026 Lounge</option>
                 </select>
               </div>
             </div>

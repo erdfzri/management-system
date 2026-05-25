@@ -564,7 +564,7 @@ export default function POSTransaction() {
     {lastTransaction && (
       <div className="hidden print:block w-full max-w-[80mm] mx-auto text-black bg-white p-4 font-mono text-sm">
         <div className="text-center mb-4">
-          <h2 className="font-bold text-xl mb-1">VISTAONE</h2>
+          <h2 className="font-bold text-xl mb-1">Grand Oasis</h2>
           <p className="text-xs">Taman Wisata Alam & Resort</p>
           <p className="text-xs">Jl. Pariwisata No. 1, Kota</p>
         </div>

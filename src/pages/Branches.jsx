@@ -62,8 +62,8 @@ export default function Branches() {
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-2">Kelola Cabang</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">Pantau performa, pendapatan, dan manajemen semua cabang</p>
+          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-2">Kelola Fasilitas</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">Pantau performa, pendapatan, dan manajemen semua fasilitas</p>
         </div>
         <button 
           onClick={() => setIsModalOpen(true)}
@@ -72,7 +72,7 @@ export default function Branches() {
           <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="relative flex items-center gap-2">
             <Plus className="w-5 h-5" />
-            Tambah Cabang Baru
+            Tambah Fasilitas Baru
           </div>
         </button>
       </div>
@@ -80,7 +80,7 @@ export default function Branches() {
       {/* Summary Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
-          title="Total Cabang Aktif"
+          title="Total Fasilitas Aktif"
           value={`${branches.length} Lokasi`}
           icon={Building2}
           color="blue"
@@ -104,7 +104,7 @@ export default function Branches() {
         />
 
         <StatCard
-          title="Rata-Rata Pendapatan Cabang"
+          title="Rata-Rata Pendapatan Fasilitas"
           value={formatCurrency(totalRevenue / (branches.length || 1))}
           icon={TrendingUp}
           color="indigo"
@@ -125,7 +125,7 @@ export default function Branches() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Cari nama atau lokasi cabang..."
+                placeholder="Cari nama atau lokasi fasilitas..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all shadow-sm"
@@ -183,7 +183,7 @@ export default function Branches() {
                     </div>
                     <div className="text-sm">
                       <p className="font-bold text-gray-900 dark:text-white leading-tight">{branch.manager}</p>
-                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Branch Manager</p>
+                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Penanggung Jawab</p>
                     </div>
                   </div>
                   <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${
@@ -241,7 +241,7 @@ export default function Branches() {
           >
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-primary-500" />
-              Peringkat Cabang (Pendapatan)
+              Peringkat Fasilitas (Pendapatan)
             </h3>
             <div className="space-y-4">
               {[...branches].sort((a, b) => b.revenue - a.revenue).slice(0, 5).map((branch, index) => (
@@ -291,8 +291,8 @@ export default function Branches() {
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tambah Cabang Baru</h2>
-                    <p className="text-xs text-gray-500">Daulat cabang wisata/kantor baru</p>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tambah Fasilitas Baru</h2>
+                    <p className="text-xs text-gray-500">Daftar fasilitas wisata/venue baru</p>
                   </div>
                 </div>
                 <button 
@@ -307,14 +307,14 @@ export default function Branches() {
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-700 dark:text-gray-300 flex items-center gap-2">
                     <Building2 className="w-4 h-4 text-gray-400" />
-                    Nama Cabang
+                    Nama Fasilitas
                   </label>
                   <input 
                     type="text" 
                     required
                     value={newBranch.name}
                     onChange={(e) => setNewBranch({...newBranch, name: e.target.value})}
-                    placeholder="Contoh: VistaOne Bali Resort"
+                    placeholder="Contoh: Grand Oasis Bali Resort"
                     className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-medium transition-shadow"
                   />
                 </div>
@@ -337,7 +337,7 @@ export default function Branches() {
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-700 dark:text-gray-300 flex items-center gap-2">
                     <Users className="w-4 h-4 text-gray-400" />
-                    Manajer Cabang (Opsional)
+                    Penanggung Jawab (Opsional)
                   </label>
                   <input 
                     type="text" 
@@ -360,7 +360,7 @@ export default function Branches() {
                     type="submit" 
                     className="flex-1 py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-bold shadow-lg shadow-primary-500/30 transition-all active:scale-95"
                   >
-                    Simpan Cabang
+                    Simpan Fasilitas
                   </button>
                 </div>
               </form>

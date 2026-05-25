@@ -15,6 +15,8 @@ import Branches from './pages/Branches';
 import Staff from './pages/Staff';
 import Reports from './pages/Reports';
 import Settings from './pages/Settings';
+import LandingPage from './pages/LandingPage';
+import AttractionDetail from './pages/AttractionDetail';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('/');
@@ -58,7 +60,7 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case '/':
+      case '/dashboard':
         return <Dashboard />;
       case '/ticketing':
         return <Ticketing />;
@@ -88,6 +90,17 @@ function App() {
         return <Dashboard />;
     }
   };
+
+  const isLandingPage = currentPage === '/';
+  const isDetailPage = currentPage.startsWith('/detail');
+
+  if (isDetailPage) {
+    return <AttractionDetail onBack={() => handleNavigate('/')} />;
+  }
+
+  if (isLandingPage) {
+    return <LandingPage onLogin={() => handleNavigate('/dashboard')} />;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300 print:bg-white overflow-x-hidden">

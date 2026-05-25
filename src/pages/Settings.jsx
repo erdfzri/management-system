@@ -31,8 +31,8 @@ export default function Settings() {
   });
 
   const [profile, setProfile] = useState({
-    name: 'Admin VistaOne',
-    email: 'admin@vistaone.com',
+    name: 'Admin Grand Oasis',
+    email: 'admin@Grand Oasis.com',
     phone: '+62 812-3456-7890',
     role: 'Super Admin',
     branch: 'Main Complex',
@@ -44,7 +44,7 @@ export default function Settings() {
     { id: 'system', name: 'Sistem', icon: Globe },
     { id: 'notifications', name: 'Notifikasi', icon: Bell },
     { id: 'security', name: 'Keamanan', icon: Shield },
-    { id: 'branch', name: 'Cabang', icon: Building2 },
+    { id: 'branch', name: 'Fasilitas', icon: Building2 },
     { id: 'backup', name: 'Backup', icon: Database },
   ];
 
@@ -433,28 +433,28 @@ export default function Settings() {
           {/* Branch Tab */}
           {activeTab === 'branch' && (
             <div className="card">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Pengaturan Cabang</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Pengaturan Fasilitas</h3>
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Cabang Aktif
+                  Fasilitas Aktif
                 </label>
                 <select className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 mb-6">
-                  <option>Main Complex - Jakarta</option>
-                  <option>Beach Resort - Bali</option>
-                  <option>Mountain Lodge - Bandung</option>
-                  <option>City Park - Surabaya</option>
+                  <option>Restoran Utama - Area Tengah</option>
+                  <option>Lapangan Golf - Area Selatan</option>
+                  <option>Water Park - Area Utara</option>
+                  <option>Kafe \u0026 Lounge - Area Timur</option>
                 </select>
 
                 <div className="space-y-4">
                   <div className="p-4 bg-gradient-to-br from-purple-50 to-lavender-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-xl">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-semibold text-gray-900 dark:text-white">Main Complex</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Restoran Utama</h4>
                       <span className="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-medium">
                         Aktif
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Jakarta, Indonesia</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Area Tengah</p>
                     <div className="grid grid-cols-3 gap-4 mt-4">
                       <div>
                         <p className="text-xs text-gray-600 dark:text-gray-400">Pengunjung</p>

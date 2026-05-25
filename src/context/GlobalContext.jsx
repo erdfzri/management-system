@@ -4,6 +4,7 @@ import * as mockData from '../data/mockData';
 const GlobalContext = createContext();
 
 export function GlobalProvider({ children }) {
+  const [facilitiesData, setFacilitiesData] = useState(mockData.facilitiesData);
   const [dashboardStats, setDashboardStats] = useState(mockData.dashboardStats);
   const [visitorTrend, setVisitorTrend] = useState(mockData.visitorTrend);
   const [areaDistribution, setAreaDistribution] = useState(mockData.areaDistribution);
@@ -44,6 +45,7 @@ export function GlobalProvider({ children }) {
   };
 
   const value = {
+    facilitiesData, setFacilitiesData,
     dashboardStats, setDashboardStats,
     visitorTrend, setVisitorTrend,
     areaDistribution, setAreaDistribution,
