@@ -93,7 +93,7 @@ export default function Visitors() {
                 marginHeight="0" 
                 marginWidth="0" 
                 src="https://www.openstreetmap.org/export/embed.html?bbox=106.8252,-6.1325,106.8550,-6.1158&layer=mapnik" 
-                className="absolute inset-0 z-0 grayscale-[20%] contrast-[110%] hue-rotate-[15deg]"
+                className="absolute inset-0 z-0 grayscale-[20%] contrast-[110%] hue-rotate-[15deg] pointer-events-none"
                 title="Taman Wisata Map"
               />
               

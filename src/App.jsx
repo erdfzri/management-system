@@ -20,6 +20,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('/');
   const [darkMode, setDarkMode] = useState(false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -96,10 +97,12 @@ function App() {
           onNavigate={handleNavigate} 
           mobileSidebarOpen={mobileSidebarOpen}
           setMobileSidebarOpen={setMobileSidebarOpen}
+          collapsed={sidebarCollapsed}
+          setCollapsed={setSidebarCollapsed}
         />
       </div>
       
-      <div className="md:ml-[280px] min-h-screen print:ml-0 print:m-0 w-full md:w-auto">
+      <div className={`min-h-screen print:ml-0 print:m-0 w-full md:w-auto transition-all duration-300 ${sidebarCollapsed ? 'md:ml-20' : 'md:ml-60'}`}>
         <div className="print:hidden">
           <Header 
             darkMode={darkMode} 
