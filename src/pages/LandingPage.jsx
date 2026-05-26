@@ -91,7 +91,7 @@ export default function LandingPage({ onLogin }) {
           <div className="flex items-center gap-3">
             <button onClick={onLogin}
               className={`hidden sm:flex px-5 py-2.5 font-bold rounded-full transition-all active:scale-95 items-center gap-2 text-sm ${scrolled ? 'bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 shadow-md' : 'bg-white text-gray-900 hover:bg-gray-100 shadow-xl'}`}>
-              Login Dashboard <ArrowRight className="w-4 h-4" />
+              Login <ArrowRight className="w-4 h-4" />
             </button>
             <button onClick={() => setMobileMenuOpen(o => !o)}
               className={`lg:hidden p-2 rounded-xl transition-colors ${scrolled ? 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800' : 'text-white hover:bg-white/10'}`}
@@ -476,7 +476,7 @@ export default function LandingPage({ onLogin }) {
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
               <div className="max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 leading-[1.1]">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 leading-[1.1]">
                   Punya Pertanyaan? <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
                     Hubungi Kami

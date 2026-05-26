@@ -16,7 +16,8 @@ import {
   ChevronRight,
   ChevronDown,
   Compass,
-  X
+  X,
+  LogOut
 } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 
@@ -190,15 +191,15 @@ export default function Sidebar({ currentPage, onNavigate, mobileSidebarOpen, se
             </div>
           </nav>
 
-          {/* User Profile */}
-          {!collapsed && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="p-4 border-t border-gray-200 dark:border-gray-800"
-            >
+          {/* User Profile & Logout */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="p-4 border-t border-gray-200 dark:border-gray-800 flex flex-col gap-2"
+          >
+            {!collapsed && (
               <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-br from-primary-50 to-lavender-100 dark:from-primary-900/20 dark:to-primary-800/20">
-                <div className="w-10 h-10 rounded-full bg-gradient-purple flex items-center justify-center text-white font-semibold">
+                <div className="w-10 h-10 rounded-full bg-gradient-purple flex items-center justify-center text-white font-semibold flex-shrink-0">
                   AD
                 </div>
                 <div className="flex-1 min-w-0">
@@ -206,8 +207,19 @@ export default function Sidebar({ currentPage, onNavigate, mobileSidebarOpen, se
                   <p className="text-xs text-gray-500 dark:text-gray-400 truncate">Super Admin</p>
                 </div>
               </div>
-            </motion.div>
-          )}
+            )}
+            
+            <button
+              onClick={() => onNavigate('/')}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 ${collapsed ? 'justify-center' : ''}`}
+              title="Logout"
+            >
+              <LogOut className="w-5 h-5 flex-shrink-0" />
+              {!collapsed && (
+                <span className="font-medium text-sm flex-1 text-left">Keluar</span>
+              )}
+            </button>
+          </motion.div>
         </div>
         {/* Mobile Close Button */}
         <button

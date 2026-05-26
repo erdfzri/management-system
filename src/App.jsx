@@ -17,6 +17,10 @@ import Reports from './pages/Reports';
 import Settings from './pages/Settings';
 import LandingPage from './pages/LandingPage';
 import AttractionDetail from './pages/AttractionDetail';
+import Login from './pages/Login';
+import CustomerHistory from './pages/CustomerHistory';
+import TicketDetail from './pages/TicketDetail';
+import Chatbot from './components/Chatbot';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('/');
@@ -58,6 +62,14 @@ function App() {
     setMobileSidebarOpen(false);
   };
 
+  const handleLogin = (role) => {
+    if (role === 'admin') {
+      handleNavigate('/dashboard');
+    } else if (role === 'customer') {
+      handleNavigate('/customer-history');
+    }
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case '/dashboard':
@@ -93,54 +105,73 @@ function App() {
 
   const isLandingPage = currentPage === '/';
   const isDetailPage = currentPage.startsWith('/detail');
+  const isLoginPage = currentPage === '/login';
+  const isCustomerHistory = currentPage === '/customer-history';
+  const isTicketDetail = currentPage.startsWith('/ticket-detail');
 
-  if (isDetailPage) {
-    return <AttractionDetail onBack={() => handleNavigate('/')} />;
-  }
-
-  if (isLandingPage) {
-    return <LandingPage onLogin={() => handleNavigate('/dashboard')} />;
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300 print:bg-white overflow-x-hidden">
-      <div className="print:hidden">
-        <Sidebar 
-          currentPage={currentPage} 
-          onNavigate={handleNavigate} 
-          mobileSidebarOpen={mobileSidebarOpen}
-          setMobileSidebarOpen={setMobileSidebarOpen}
-          collapsed={sidebarCollapsed}
-          setCollapsed={setSidebarCollapsed}
-        />
-      </div>
-      
-      <div className={`min-h-screen print:ml-0 print:m-0 w-full md:w-auto transition-all duration-300 ${sidebarCollapsed ? 'md:ml-20' : 'md:ml-60'}`}>
+  let content;
+  if (isTicketDetail) {
+    content = <TicketDetail onBack={() => handleNavigate('/customer-history')} />;
+  } else if (isDetailPage) {
+    content = <AttractionDetail onBack={() => handleNavigate('/')} />;
+  } else if (isLoginPage) {
+    content = <Login onLogin={handleLogin} onBack={() => handleNavigate('/')} />;
+  } else if (isCustomerHistory) {
+    content = <CustomerHistory 
+      onLogout={() => handleNavigate('/')} 
+      onBack={() => handleNavigate('/')} 
+      onViewDetail={(id) => handleNavigate(`/ticket-detail/${id}`)}
+    />;
+  } else if (isLandingPage) {
+    content = <LandingPage onLogin={() => handleNavigate('/login')} />;
+  } else {
+    content = (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300 print:bg-white overflow-x-hidden">
         <div className="print:hidden">
-          <Header 
-            darkMode={darkMode} 
-            toggleDarkMode={toggleDarkMode} 
-            toggleSidebar={() => setMobileSidebarOpen(!mobileSidebarOpen)} 
+          <Sidebar 
+            currentPage={currentPage} 
+            onNavigate={handleNavigate} 
+            mobileSidebarOpen={mobileSidebarOpen}
+            setMobileSidebarOpen={setMobileSidebarOpen}
+            collapsed={sidebarCollapsed}
+            setCollapsed={setSidebarCollapsed}
           />
         </div>
         
-        <main className="pt-16 print:pt-0">
-          <div className="p-6 print:p-0">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentPage}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                {renderPage()}
-              </motion.div>
-            </AnimatePresence>
+        <div className={`min-h-screen print:ml-0 print:m-0 w-full md:w-auto transition-all duration-300 ${sidebarCollapsed ? 'md:ml-20' : 'md:ml-60'}`}>
+          <div className="print:hidden">
+            <Header 
+              darkMode={darkMode} 
+              toggleDarkMode={toggleDarkMode} 
+              toggleSidebar={() => setMobileSidebarOpen(!mobileSidebarOpen)} 
+            />
           </div>
-        </main>
+          
+          <main className="pt-16 print:pt-0">
+            <div className="p-6 print:p-0">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentPage}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {renderPage()}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </main>
+        </div>
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <>
+      {content}
+      <Chatbot />
+    </>
   );
 }
 

@@ -209,7 +209,7 @@ export default function AttractionDetail({ onBack }) {
             onClick={() => window.location.hash = '#/dashboard'}
             className="px-6 py-2.5 font-bold rounded-full transition-all active:scale-95 flex items-center gap-2 bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 shadow-md"
           >
-            Login Dashboard <ArrowRight className="w-4 h-4" />
+            Login <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </nav>
@@ -518,8 +518,8 @@ export default function AttractionDetail({ onBack }) {
                         key={method.id}
                         onClick={() => setPaymentMethod(method.id)}
                         className={`w-full p-4 rounded-xl border flex items-center justify-between transition-all text-left ${paymentMethod === method.id
-                            ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
-                            : 'border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700'
+                          ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
+                          : 'border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700'
                           }`}
                       >
                         <div>
