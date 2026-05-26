@@ -122,7 +122,7 @@ export default function CustomerHistory({ onLogout, onBack, onViewDetail }) {
                 </div>
 
                 <div className="flex-grow">
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex flex-col sm:flex-row justify-between items-start mb-4 gap-3">
                     <div>
                       <span className="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-black uppercase tracking-widest rounded-md mb-2">
                         {ticket.type}
@@ -147,7 +147,7 @@ export default function CustomerHistory({ onLogout, onBack, onViewDetail }) {
                     )}
                   </div>
 
-                <div className="grid grid-cols-2 gap-4 mt-6 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-sm text-blue-500">
                       <Calendar className="w-4 h-4" />
@@ -175,7 +175,10 @@ export default function CustomerHistory({ onLogout, onBack, onViewDetail }) {
                 <div className="absolute -top-6 -left-3 w-6 h-6 bg-gray-50 dark:bg-gray-950 rounded-full border border-gray-200 dark:border-gray-800 border-b-transparent border-l-transparent border-r-transparent transform rotate-45"></div>
                 <div className="absolute -bottom-6 -left-3 w-6 h-6 bg-gray-50 dark:bg-gray-950 rounded-full border border-gray-200 dark:border-gray-800 border-t-transparent border-l-transparent border-r-transparent transform rotate-45"></div>
               </div>
-              <div className="md:hidden relative h-0 border-b-2 border-dashed border-gray-200 dark:border-gray-700 mx-4"></div>
+              <div className="md:hidden relative h-0 border-b-2 border-dashed border-gray-200 dark:border-gray-700 mx-4">
+                <div className="absolute -left-7 -top-3 w-6 h-6 bg-gray-50 dark:bg-gray-950 rounded-full border border-gray-200 dark:border-gray-800 border-t-transparent border-b-transparent border-l-transparent"></div>
+                <div className="absolute -right-7 -top-3 w-6 h-6 bg-gray-50 dark:bg-gray-950 rounded-full border border-gray-200 dark:border-gray-800 border-t-transparent border-b-transparent border-r-transparent"></div>
+              </div>
 
               {/* Right Side / QR / Actions */}
               <div className="p-6 flex flex-col items-center justify-center bg-white dark:bg-gray-900 min-w-[200px] gap-3">

@@ -95,19 +95,16 @@ export default function Login({ onLogin, onBack }) {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
-        className="w-full mx-4 flex overflow-hidden shadow-2xl"
+        className="w-full max-w-[960px] mx-4 flex flex-col md:flex-row overflow-hidden shadow-2xl bg-white my-8 md:my-0"
         style={{
-          maxWidth: 960,
           minHeight: 560,
           borderRadius: 24,
-          background: 'white',
         }}
       >
         {/* ── LEFT COLUMN ── */}
         <div
-          className="hidden md:flex flex-col justify-between relative overflow-hidden"
+          className="flex flex-col justify-between relative overflow-hidden w-full md:w-[45%] min-h-[320px] md:min-h-0"
           style={{
-            width: '45%',
             background: '#60a5fa',
             padding: '36px 36px 32px',
           }}
@@ -139,21 +136,21 @@ export default function Login({ onLogin, onBack }) {
           </div>
 
           {/* Mascot Illustration */}
-          <div className="relative z-10 flex-grow flex items-center justify-center my-4">
+          <div className="relative z-10 flex-grow flex items-center justify-center my-6 md:my-4">
             
             {/* Speech Bubble Tooltip */}
-            <div className="absolute top-6 left-[50%] md:left-[55%] bg-white text-blue-700 px-4 py-3 rounded-2xl rounded-bl-none shadow-xl w-[170px] z-30 border border-blue-100 transform -rotate-2 text-left">
-              <p className="text-xs font-bold leading-relaxed">
+            <div className="absolute -top-4 md:top-2 left-[50%] md:left-[55%] bg-white text-blue-700 px-4 py-3 rounded-2xl rounded-bl-none shadow-xl w-[160px] md:w-[170px] z-30 border border-blue-100 transform -rotate-2 text-left">
+              <p className="text-[11px] md:text-xs font-bold leading-relaxed">
                 {displayedText}<span className="animate-pulse">|</span>
               </p>
             </div>
 
-            <div className="absolute w-48 h-48 rounded-full border-4 border-white/20 animate-spin" style={{ animationDuration: '12s' }}></div>
-            <div className="absolute w-36 h-36 rounded-full border-2 border-white/10 animate-spin" style={{ animationDuration: '8s', animationDirection: 'reverse' }}></div>
+            <div className="absolute w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-white/20 animate-spin" style={{ animationDuration: '12s' }}></div>
+            <div className="absolute w-28 h-28 md:w-36 md:h-36 rounded-full border-2 border-white/10 animate-spin" style={{ animationDuration: '8s', animationDirection: 'reverse' }}></div>
             <motion.img
               src="/mascot.png"
               alt="Grand Oasis Mascot"
-              className="relative z-10 w-full max-w-[310px] drop-shadow-2xl"
+              className="relative z-10 w-full max-w-[220px] md:max-w-[260px] drop-shadow-2xl"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             />
@@ -170,8 +167,7 @@ export default function Login({ onLogin, onBack }) {
 
         {/* ── RIGHT COLUMN ── */}
         <div
-          className="flex flex-col bg-white relative items-center justify-center overflow-y-auto"
-          style={{ width: '55%', padding: '32px 24px' }}
+          className="flex flex-col bg-white relative items-center justify-center overflow-y-auto w-full md:w-[55%] py-10 px-6 md:px-8"
         >
           {/* Language picker */}
           <div className="absolute top-6 right-8 text-[11px] font-medium text-gray-400 cursor-pointer hover:text-gray-600 transition-colors select-none flex items-center gap-1">
